@@ -1,13 +1,13 @@
 #!/bin/bash
-# applies style-transfer to faces using existing faces & style images
+# applies style-transfer to existing faces using style images
 
 # Directory & File variables
-CONTENTDIR=./content # directory where content is stored
-STYLEDIR=./styles # directory where styles are stored
-RESULTDIR=/storage # directory to save result to (for testing you can change it to '.')
+CONTENTDIR=content # directory where content is stored
+STYLEDIR=styles # directory where styles are stored
+RESULTDIR=/storage # directory to save result to (for testing you can change it to: '.')
 WORKDIR=.
 
-OUTPUTFILE=./output.log
+OUTPUTFILE=output.log
 
 # Processing Variables
 STYLEMINAMOUNT=1 # min amount of style images per style transfer
