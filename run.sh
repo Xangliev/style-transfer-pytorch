@@ -1,5 +1,5 @@
 #!/bin/bash
-# applies style-transfer to existing faces using style images
+# applies style-transfer to existing content images using style images
 
 # Directory & File variables
 CONTENTDIR=content # directory where content is stored
