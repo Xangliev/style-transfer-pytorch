@@ -7,7 +7,7 @@ STYLEDIR=styles # directory where styles are stored
 WORKDIR=. # working directory
 OUTPUTFILE=output.log # log file
 
-read -p "Where to store results? (hint: use '.' to store locally) " RESULTDIR
+read -p "Where to store results? (hint: use '.' to store in current directory) " RESULTDIR
 
 if [ ! -d $RESULTDIR ]
 then
