@@ -1,6 +1,12 @@
 #!/bin/bash
 # applies style-transfer to existing content images using style images
 
+# Directory & File variables
+CONTENTDIR=content # directory where content is stored
+STYLEDIR=styles # directory where styles are stored
+WORKDIR=. # working directory
+OUTPUTFILE=output.log # log file
+
 read -p "Where to store results? (hint: use '.' to store locally) " RESULTDIR
 
 if [ ! -d $RESULTDIR ]
@@ -9,13 +15,6 @@ then
     echo "Exiting.."
     exit 1
 fi
-
-# Directory & File variables
-CONTENTDIR=content # directory where content is stored
-STYLEDIR=styles # directory where styles are stored
-WORKDIR=.
-
-OUTPUTFILE=output.log
 
 if [ ! -d $CONTENTDIR ] || [ ! -d $STYLEDIR ]
 then
@@ -34,7 +33,6 @@ pip install -e $WORKDIR
 apt update -y && apt install zip -y
 
 ## Run the model for each contentfile
-echo "Running the model.."
 for file in `ls $CONTENTDIR`
 do
     # Get n random style files
