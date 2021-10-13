@@ -23,11 +23,12 @@ do
     # Get n random style files
     RANDOMNUMBER=$(shuf -i1-$STYLEAMOUNT -n1)
     RANDOMSTYLEFILE=$(find $STYLEDIR -type f | shuf -n $RANDOMNUMBER | tr '\n' ' ')
+    JSONINPUT=$(echo "$RANDOMSTYLEFILE" | awk '{for(i=1;i<NF;i++)if(i!=NF){$i=$i","}  }1' | awk '{$1=$1};1')
     # Run the style transfer with a randomized amount of styles
     style_transfer $CONTENTDIR/$file $RANDOMSTYLEFILE -o $RESULTDIR/$file -s $IMAGESIZE
 
 # Output result to logfile
 cat <<EOF >> $OUTPUTFILE
-{"name": "$file", "styles": "$RANDOMSTYLEFILE", "style_amount": "$RANDOMNUMBER"},
+{"name": "$file", "styles": "[$JSONINPUT]", "style_amount": "$RANDOMNUMBER"},
 EOF
 done
