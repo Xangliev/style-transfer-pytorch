@@ -1,10 +1,11 @@
 #!/bin/bash
 # applies style-transfer to existing content images using style images
 
+read -p 'Where to store results? ' RESULTDIR
+
 # Directory & File variables
 CONTENTDIR=content # directory where content is stored
 STYLEDIR=styles # directory where styles are stored
-RESULTDIR=/storage # directory to save result to (for testing you can change it to: '.')
 WORKDIR=.
 
 OUTPUTFILE=output.log
