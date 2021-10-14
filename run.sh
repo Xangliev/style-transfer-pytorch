@@ -1,36 +1,24 @@
 #!/bin/bash
 # applies style-transfer to existing content images using style images
 
-# variables
+# Directory & File variables
 CONTENTDIR=content # directory where content is stored
 STYLEDIR=styles # directory where styles are stored
-WORKDIR=. # working directory
-OUTPUTFILE=output.log # log file
+RESULTDIR=/storage # directory to save result to (for testing you can change it to: '.')
+WORKDIR=.
 
-read -p "Where to store results? (hint: use '.' to store locally) " RESULTDIR
+OUTPUTFILE=output.log
 
-if [ ! -d $RESULTDIR ]
-then
-    echo "Error: directory '$RESULTDIR' does not exist."
-    echo "Exiting.."
-    exit 1
-elif [ ! -d $CONTENTDIR ] || [ ! -d $STYLEDIR ]
-then
-    echo "Error: content directory '$CONTENTDIR' and/or styles directory '$STYLEDIR' do not exist."
-    echo "Exiting.."
-    exit 1
-fi
-
-read -p "Set minimum amount of style images for style-transfer: (recommended: 1) " STYLEMINAMOUNT
-read -p "Set maximum amount of style images for style-transfer: (recommended: 3) " STYLEMAXAMOUNT
-read -p "Set image size in px: (recommended: 480) " IMAGESIZE
+# Processing Variables
+STYLEMINAMOUNT=1 # min amount of style images per style transfer
+STYLEMAXAMOUNT=3 # max amount of style images per style transfer
+IMAGESIZE=480 # max image size in px
 
 ## Install the packages
-echo "Preparing the environment.."
 pip install -e $WORKDIR
 apt update -y && apt install zip -y
 
-## Run the model for each file in the content directory
+## Run the model for each contentfile
 for file in `ls $CONTENTDIR`
 do
     # Get n random style files
