@@ -11,7 +11,7 @@ WORKDIR=.
 OUTPUTFILE=output.log
 
 # Processing Variables
-STYLEMINAMOUNT=1 # min amount of style images per style transfer
+STYLEMINAMOUNT=2 # min amount of style images per style transfer
 STYLEMAXAMOUNT=3 # max amount of style images per style transfer
 IMAGESIZE=480 # max image size in px
 
@@ -22,6 +22,8 @@ apt update -y && apt install zip -y
 ## Run the model for each contentfile
 for file in `ls $CONTENTDIR`
 do
+    # Remove notebook checkpoint folder
+    rm -rf $STYLEDIR/.ipynb_checkpoints
     # Get n random style files
     RANDOMNUMBER=$(shuf -i$STYLEMINAMOUNT-$STYLEMAXAMOUNT -n1)
     RANDOMSTYLEFILE=$(find $STYLEDIR -type f | shuf -n $RANDOMNUMBER | tr '\n' ' ')
