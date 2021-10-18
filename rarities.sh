@@ -21,8 +21,8 @@ apt update -y && apt install zip -y
 ## Run the model for each contentfile
 for file in `ls $CONTENTDIR`
 do
-    # Remove notebook checkpoint folder
-    find $STYLEDIR -type f -name '.ipynb_checkpoints' -delete
+    # Remove notebook checkpoint folders
+    find $STYLEDIR -type d -name '.ipynb_checkpoints' -exec rm -rf {} +
 
     # Get n random style files
     RANDOMNUMBER=$(shuf -i$STYLEMINAMOUNT-$STYLEMAXAMOUNT -n1)
