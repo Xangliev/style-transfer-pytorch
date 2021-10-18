@@ -36,15 +36,15 @@ do
         # Select random rarity folder
         RANDOMFOLDER=$(shuf -i1-100 -n1)
         if [ $RANDOMFOLDER -lt 55 ]; then
-            RARITYFOLDER=Common
+            RARITYFOLDER=common
         elif [ $RANDOMFOLDER -lt 85 ] ; then
-            RARITYFOLDER=Uncommon
+            RARITYFOLDER=uncommon
         elif [ $RANDOMFOLDER -lt 95 ] ; then
-            RARITYFOLDER=Rare
+            RARITYFOLDER=rare
         elif [ $RANDOMFOLDER -lt 100 ] ; then
-            RARITYFOLDER=Superrare
+            RARITYFOLDER=superrare
         else
-            RARITYFOLDER=Ultrarare
+            RARITYFOLDER=ultrarare
         fi
 
         RANDOMSTYLEFILE=$(find $STYLEDIR/$RARITYFOLDER -type f | shuf -n 1 | tr '\n' ' ')
