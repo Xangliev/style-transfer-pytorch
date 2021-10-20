@@ -35,7 +35,7 @@ do
     do
         # Select random rarity folder
         RANDOMFOLDER=$(shuf -i1-100 -n1)
-        if [ $RANDOMFOLDER -lt 55 ]; then
+        if [ $RANDOMFOLDER -lt 50 ]; then
             RARITYFOLDER=common
         elif [ $RANDOMFOLDER -lt 85 ] ; then
             RARITYFOLDER=uncommon
