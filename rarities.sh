@@ -10,7 +10,7 @@ STYLEDIR=styles # directory where styles are stored
 OUTPUTFILE=output.log
 
 # Processing Variables
-STYLEMINAMOUNT=2 # min amount of style images per style transfer
+STYLEMINAMOUNT=3 # min amount of style images per style transfer
 STYLEMAXAMOUNT=3 # max amount of style images per style transfer
 IMAGESIZE=512 # max image size in px
 
