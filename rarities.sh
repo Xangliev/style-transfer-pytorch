@@ -2,9 +2,10 @@
 # applies style-transfer to existing content images using style images
 
 read -p 'Where to store results? ' RESULTDIR
+read -p 'Remove content files after processing? (yes/no default: no) ' REMOVE
 
 # Directory & File variables
-CONTENTDIR=content # directory where content is stored
+CONTENTDIR=content2 # directory where content is stored
 STYLEDIR=styles # directory where styles are stored
 
 OUTPUTFILE=output.log
@@ -64,5 +65,11 @@ EOF
 
     # Run the style transfer with a randomized amount of styles
     style_transfer $CONTENTDIR/$file $STYLELIST -o $RESULTDIR/$file -s $IMAGESIZE
+    
+    # Optionally remove content file
+    if [ "$REMOVE" == 'yes' ]
+    then
+        rm $CONTENTDIR/$file
+    fi
 
 done
