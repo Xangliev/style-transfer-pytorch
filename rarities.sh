@@ -5,7 +5,7 @@ read -p 'Where to store results? ' RESULTDIR
 read -p 'Remove content files after processing? (yes/no default: no) ' REMOVE
 
 # Directory & File variables
-CONTENTDIR=content2 # directory where content is stored
+CONTENTDIR=content # directory where content is stored
 STYLEDIR=styles # directory where styles are stored
 
 OUTPUTFILE=output.log
