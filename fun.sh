@@ -12,14 +12,14 @@ STYLEDIR=styles # directory where styles are stored
 OUTPUTFILE=output.log
 
 # Processing Variables
-IMAGESIZE=480 # max image size in px
+IMAGESIZE=360 # max image size in px
 STYLEMINAMOUNT=1 # min amount of complex style images per style transfer
 STYLEMAXAMOUNT=2 # max amount of complex style images per style transfer
 
 ## Install the packages
 pip install -e .
-apt update -y && apt install liblcms2-dev zip -y
-pip install Pillow
+apt update -y && apt install zip -y
+pip install --upgrade --force-reinstall pillow
 
 #loop X times
 for iteration in $(seq 1 $LOOPS)
@@ -71,3 +71,4 @@ EOF
         fi
     done
 done
+
