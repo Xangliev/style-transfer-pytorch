@@ -17,9 +17,8 @@ STYLEMAXAMOUNT=3 # max amount of style images per style transfer
 IMAGESIZE=512 # max image size in px
 
 ## Install the packages
-pip install -e .
+pip install -e . && pip install --upgrade --force-reinstall pillow
 apt update -y && apt install zip -y
-pip install --upgrade --force-reinstall pillow
 
 #loop X times
 for iteration in $(seq 1 $LOOPS)
