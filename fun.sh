@@ -12,9 +12,9 @@ STYLEDIR=styles # directory where styles are stored
 OUTPUTFILE=output.log
 
 # Processing Variables
-IMAGESIZE=360 # max image size in px
-STYLEMINAMOUNT=1 # min amount of complex style images per style transfer
-STYLEMAXAMOUNT=2 # max amount of complex style images per style transfer
+IMAGESIZE=480 # max image size in px
+STYLEMINAMOUNT=3 # min amount of complex style images per style transfer
+STYLEMAXAMOUNT=3 # max amount of complex style images per style transfer
 
 ## Install the packages
 pip install -e .
@@ -71,4 +71,5 @@ EOF
         fi
     done
 done
+
 
